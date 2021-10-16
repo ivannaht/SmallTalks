@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: pass333333
+  port: 5432
+
+development:
+  <<: *default
+  database: SmallTalks__development
+
+test:
+  <<: *default
+  database: SmallTalks__test
+
+staging:
+  <<: *default
+  database: app_name_staging
+
+production:
+  <<: *default
+  database: SmallTalks__production
