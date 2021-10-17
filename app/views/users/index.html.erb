@@ -1,0 +1,34 @@
+
+<h1>List of Users</h1>
+<div class="table-responsive-sm">
+<table  class=" table table-hover align-middle" >
+  <thead class="table-light">
+    <tr vertical-align: middle>
+      <th>Photo</th>
+      <th>Email</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+ <tbody>
+    <% @users.each do |user| %>
+    <tr vertical-align: middle>
+        <td>user.photo</td>
+        <td><%= user.email %></td>
+        <td>user.first_name</td>
+        <td>user.last_name</td>
+        <td>user.age</td>
+ 
+        <td><%= link_to 'Show', user %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
