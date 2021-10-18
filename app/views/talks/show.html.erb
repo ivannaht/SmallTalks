@@ -1,0 +1,44 @@
+
+
+<p>
+  <strong>Title:</strong>
+  <%= @talk.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @talk.text %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @talk.photo %>
+</p>
+
+<p>
+  <strong>Likes number:</strong>
+  <%= @talk.likes_number %>
+</p>
+
+<p>
+  <strong>Dislikes number:</strong>
+  <%= @talk.dislikes_number %>
+</p>
+
+<p>
+  <strong>Comments number:</strong>
+  <%= @talk.comments_number %>
+</p>
+
+<p>
+  <strong>Shares number:</strong>
+  <%= @talk.shares_number %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @talk.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_talk_path(@talk) %> |
+<%= link_to 'Back', talks_path %>
