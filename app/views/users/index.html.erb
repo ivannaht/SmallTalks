@@ -19,12 +19,12 @@
  <tbody>
     <% @users.each do |user| %>
     <tr vertical-align: middle>
-        <td>user.photo</td>
-        <td>user.nickname</td>
+        <td><%= user.photo %></td>
+        <td><%= user.nickname %></td>
         <td><%= user.email %></td>
-        <td>user.first_name</td>
-        <td>user.last_name</td>
-        <td>user.age</td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.age %></td>
  
         <td><%= link_to 'Show', user %></td>
     </tr>
