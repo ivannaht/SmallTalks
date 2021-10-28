@@ -1,6 +1,8 @@
 <div class="card text-center">
   <div class="card-header">
-    Photo and Nickname for user_id <%= @talk.user_id %>
+    <strong><%= @talk.user.photo %></strong>
+    <strong><%= @talk.user.first_name %></strong>
+    <strong><%= @talk.user.last_name %></strong>
   </div>
   <div class="card-body">
     <h5 class="card-title"><%= @talk.title %></h5>
