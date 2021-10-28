@@ -1,6 +1,7 @@
 <div class="card text-center">
   <div class="card-header">
-    <strong><%= @talk.user.photo %></strong>
+    <%= image_tag(@talk.user.photo, size: '50') if @talk.user.photo.present? %>
+    
     <strong><%= @talk.user.first_name %></strong>
     <strong><%= @talk.user.last_name %></strong>
   </div>
@@ -9,7 +10,8 @@
     <p class="card-text">
     <%= @talk.text %>
     <br>
-    <%= @talk.photo %></p>
+    <%= image_tag(@talk.photo, size: '150') if @talk.photo.present? %>
+   </p>
     <%= link_to 'Edit', edit_talk_path(@talk), class:"btn btn-outline-info" %>
     </div>
   <div class="card-footer text-muted">

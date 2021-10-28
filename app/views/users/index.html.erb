@@ -16,7 +16,7 @@
  <tbody>
     <% @users.each do |user| %>
     <tr vertical-align: middle>
-        <td><%= image_tag user.photo if user.photo.present? %></td>
+        <td><%= image_tag(user.photo, size: '50') if user.photo.present? %></td>
         <td><%= user.nickname %></td>
         <td><%= user.email %></td>
         <td><%= user.first_name %></td>
