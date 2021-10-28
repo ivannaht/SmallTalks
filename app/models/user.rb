@@ -17,6 +17,6 @@ class User < ApplicationRecord
 
   #relationship       
   has_many :talks
-  has_one_attached :image
+  has_one_attached :photo
   
 end
