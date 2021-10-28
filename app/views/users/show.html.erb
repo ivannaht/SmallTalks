@@ -1,37 +1,43 @@
-<body style="background-image: url('https://mdbootstrap.com/img/new/slides/098.jpg');">
-<p>
-  <strong>Detailed info about User:</strong>
-</p>
-<p align="center">
-  <strong>Talks:</strong>
-</p>
-  <table align="center" width="400">
-  
-  <thead>
-    <tr>
-      <th align="left">Title:</th>
-      <th align="left">Text:</th>
-      <th align="left">Photo:</th>
-      <th align="left">Likes:</th>
-      <th align="left">Dislikes:</th>
-      <th align="left">Comments:</th>
-      <th align="left">Shares:</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<body style="background-color:#063561df;">
 
-  <tbody>
+<p class="text-light">
+  <strong>User's details:</strong>
+  <br>
+   <strong><%= @user.photo %></strong>
+   <br>
+    <strong><%= @user.first_name %></strong>
+    <strong><%= @user.last_name %></strong>
+</p>
+
+<br>
+<div class="card text-center">
+  <div class="card-header">
+    <strong>Talks:</strong>
+  </div>
+
+
   <% @user.talks.each do |talk| %>
-  <tr>
-  <td><%= talk.title %></td>
-  <td><%= talk.text %></td>
-  <td><%= talk.photo %></td>
-  <td><%= talk.likes_number %></td>
-  <td><%= talk.dislikes_number %></td>
-  <td><%= talk.comments_number %></td>
-  <td><%= talk.shares_number %></td>
-  </tr>
-  <% end %>
-  </tbody>
-</table>
+  
+<div class="card-body">
+    <h5 class="card-title"><%= talk.title %></h5>
+    <p class="card-text">
+    <%= talk.text %>
+    <br>
+    <%= talk.photo %></p>
+    
+    </div>
+    
+  <div class="card-footer text-muted">
+    likes: <%= talk.likes_number %>
+    dislikes: <%= talk.dislikes_number %>
+    comments: <%= talk.comments_number %>
+    shares: <%= talk.shares_number %>
+    </div>
+    
+
+<% end %>
+
+  </div>
+</div>
+<br>
 </body>
