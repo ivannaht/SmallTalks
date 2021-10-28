@@ -3,7 +3,7 @@
 <p class="text-light">
   <strong>User's details:</strong>
   <br>
-   <strong><%= @user.photo %></strong>
+   <strong><%= image_tag @user.photo if @user.photo.present? %></strong>
    <br>
     <strong><%= @user.first_name %></strong>
     <strong><%= @user.last_name %></strong>
