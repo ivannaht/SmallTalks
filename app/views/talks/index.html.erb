@@ -1,25 +1,25 @@
-
-
 <h1>Talks</h1>
+<div class="table-responsive-sm">
+<table  class=" table table-hover align-middle" >
+  <thead class="table-light">
+    <tr vertical-align: middle>
 
-<table>
-  <thead>
-    <tr>
       <th>Title</th>
       <th>Text</th>
       <th>Photo</th>
-      <th>Likes number</th>
-      <th>Dislikes number</th>
-      <th>Comments number</th>
-      <th>Shares number</th>
+      <th>Likes</th>
+      <th>Dislikes</th>
+      <th>Comments</th>
+      <th>Shares</th>
       <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+       
+ <tbody>
     <% @talks.each do |talk| %>
-      <tr>
+      <tr vertical-align: middle>
         <td><%= talk.title %></td>
         <td><%= talk.text %></td>
         <td><%= talk.photo %></td>
@@ -27,7 +27,7 @@
         <td><%= talk.dislikes_number %></td>
         <td><%= talk.comments_number %></td>
         <td><%= talk.shares_number %></td>
-        <td><%= talk.user_id %></td>
+        <td><%= talk.user.nickname %></td>
         <td><%= link_to 'Show', talk %></td>
         <td><%= link_to 'Edit', edit_talk_path(talk) %></td>
         <td><%= link_to 'Destroy', talk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -35,7 +35,8 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%= link_to 'New Talk', new_talk_path %>
+<br>
