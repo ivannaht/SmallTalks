@@ -1,43 +1,79 @@
 <body style="background-color:#063561df;">
+<!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container">
 
-<p class="text-light">
-  <strong>User's details:</strong>
-  <br>
-   <strong><%= image_tag(@user.photo, size: '150') if @user.photo.present? %></strong>
-   <br>
-    <strong><%= @user.first_name %></strong>
-    <strong><%= @user.last_name %></strong>
-</p>
+        <div class="section-title">
+          <h2>User's details</h2>
+          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+        </div>
 
-<br>
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <h3>
+                <strong><%= @user.first_name %></strong>
+                <strong><%= @user.last_name %></strong>
+                </h3>
+                <h4><strong><%= @user.nickname %></strong></h4>
+                <br>
+                
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Email: <%= @user.email %> |
+                  Date of Birth: <%= @user.dob %> |
+                  Age: <%= @user.age %>
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <%= image_tag(@user.photo, size: '300') if @user.photo.present? %>
+     <br>
+     <br>
 <div class="card text-center">
   <div class="card-header">
-    <strong>Talks:</strong>
+  
+   <h3> <strong>Talks</strong></h3>
   </div>
 
 
   <% @user.talks.each do |talk| %>
   
 <div class="card-body">
+<%= image_tag(talk.photo, size: '150', :align=> "left") if talk.photo.present? %>
     <h5 class="card-title"><%= talk.title %></h5>
     <p class="card-text">
     <%= talk.text %>
     <br>
-    <%= talk.photo %></p>
+    
+    
     
     </div>
     
   <div class="card-footer text-muted">
+    <div>
     likes: <%= talk.likes_number %>
     dislikes: <%= talk.dislikes_number %>
     comments: <%= talk.comments_number %>
     shares: <%= talk.shares_number %>
+</div>
+<div>Like icon/action Comment icon/action Share icon/action
+</div>
     </div>
     
 
 <% end %>
 
   </div>
+  <br>
 </div>
 <br>
+</div>
+
+            </div>
+</div>
+
+   </div>
+          
 </body>
+

@@ -22,15 +22,17 @@
       <tr vertical-align: middle>
         <td><%= talk.title %></td>
         <td><%= talk.text %></td>
-        <td><%= talk.photo %></td>
+        <td><%= image_tag(talk.photo, size: '150') if talk.photo.present? %></td>
         <td><%= talk.likes_number %></td>
         <td><%= talk.dislikes_number %></td>
         <td><%= talk.comments_number %></td>
         <td><%= talk.shares_number %></td>
         <td><%= talk.user.nickname %></td>
         <td><%= link_to 'Show', talk %></td>
+<% if current_user.admin?%>
         <td><%= link_to 'Edit', edit_talk_path(talk) %></td>
         <td><%= link_to 'Destroy', talk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>    
       </tr>
     <% end %>
   </tbody>
