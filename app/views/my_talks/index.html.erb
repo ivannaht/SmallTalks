@@ -1,4 +1,4 @@
-<h1>Talks</h1>
+<h1>My Talks</h1>
 <div class="table-responsive-sm">
 <table  class=" table table-hover align-middle" >
   <thead class="table-light">
@@ -15,11 +15,12 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+<tbody>
 
-       
- <tbody>
     <% @talks.each do |talk| %>
       <tr vertical-align: middle>
+
+<% if talk.user == current_user %>
         <td><%= talk.title %></td>
         <td><%= talk.text %></td>
         <td><%= image_tag(talk.photo, size: '150') if talk.photo.present? %></td>
@@ -29,16 +30,16 @@
         <td><%= talk.shares_number %></td>
         <td><%= talk.user.nickname %></td>
         <td><%= link_to 'Show', talk %></td>
-<% if current_user.admin?%>
         <td><%= link_to 'Edit', edit_talk_path(talk) %></td>
         <td><%= link_to 'Destroy', talk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-<% end %>    
-      </tr>
+        </tr>
+    <% end %>
     <% end %>
   </tbody>
+       
+
+  
 </table>
 </div>
 <br>
 
-
-<br>
