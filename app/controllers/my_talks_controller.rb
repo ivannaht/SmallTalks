@@ -12,13 +12,19 @@ class MyTalksController < ApplicationController
   def show
       end
 
+ def new
+   #@talk = Talk.new
+   @talk = current_user.talks.build
+ end     
+
   # GET /my_talks/1/edit
   def edit
   end
 
   # POST /my_talks or /my_talks.json
   def create
-    @talk = Talk.new(talk_params)
+   # @talk = Talk.new(talk_params)
+   @talk = current_user.talks.build(talk_params)
 
     respond_to do |format|
       if @talk.save
