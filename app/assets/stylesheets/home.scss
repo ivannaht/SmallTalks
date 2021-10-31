@@ -67,7 +67,7 @@ body {
   #hero {
     width: 100%;
     height: 60vh;
-    background: url("../img/hero-bg.jpg") center center;
+    background: url('https://mdbootstrap.com/img/new/slides/098.jpg') center center; 
     background-size: cover;
     position: relative;
     margin-top: 70px;
@@ -137,7 +137,7 @@ body {
   # Sections General
   --------------------------------------------------------------*/
   section {
-    padding: 60px 0;
+    padding: 20px 0;
   }
   
   .section-bg {

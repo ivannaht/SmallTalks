@@ -1,30 +1,19 @@
 <%= form_with(model: talk) do |form| %>
-  <% if talk.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(talk.errors.count, "error") %> prohibited this talk from being saved:</h2>
+ 
 
-      <ul>
-        <% talk.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title,  class:"form-control w-100"%>
   </div>
-
-  <div class="field">
+  <br>
+  <div class="field form-group">
     <%= form.label :text %>
-    <%= form.text_area :text %>
+    <%= form.text_area :text, class:"form-control w-100", :rows => 10 %>
   </div>
-
-  <div class="field">
+<br>
+  <div class="field form-group mb-3">
     <%= form.label :photo %>
-    <%= form.file_field :photo %>
+    <%= form.file_field :photo,  accept: 'image/png,image/gif,image/jpeg', class:"form-control w-50" %>     
   </div>
 
   <div class="field">
@@ -48,12 +37,16 @@
   </div>
 
   <div class="field">
-    
     <%= form.text_field :user_id, value: current_user.id, type: :hidden %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Save", class:"btn btn-primary" %>
   </div>
+  <% end %>
+  <br>
 
-<% end %>
+
+
+    
+    

@@ -7,9 +7,9 @@
   <div class="row">
     <div class="col">
 
-<div class="field form-group">
+  <div class="field form-group mb-3">
     <%= f.label :photo %><br />
-    <%= f.file_field :photo %>
+    <%= f.file_field :photo,  accept: 'image/png,image/gif,image/jpeg', class:"form-control w-50" %>     
   </div>
   <br>
    
@@ -39,8 +39,8 @@
   </div>
   <p>
   <div class="field form-check">
-  <%= f.check_box :admin, class:"form-check-input", autocomplete: "admin" %>
-    <%= f.label :admin %>
+  <%= f.check_box :admin, class:"form-check-input", autocomplete: "admin", style:"display:none" %>
+    <%= f.label :admin, style:"display:none" %>
   </div></p>
 </div>
 <div class="col">
