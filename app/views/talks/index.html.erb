@@ -15,8 +15,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
-       
  <tbody>
     <% @talks.each do |talk| %>
       <tr vertical-align: middle>
@@ -28,10 +26,10 @@
         <td><%= talk.comments_number %></td>
         <td><%= talk.shares_number %></td>
         <td><%= talk.user.nickname %></td>
-        <td><%= link_to 'Show', talk %></td>
+        <td><%= link_to 'View', talk, class:"btn btn-outline-primary" %></td>
 <% if current_user.admin?%>
-        <td><%= link_to 'Edit', edit_talk_path(talk) %></td>
-        <td><%= link_to 'Destroy', talk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_talk_path(talk), class:"btn btn-outline-info" %></td>
+        <td><%= link_to 'Delete', talk, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %></td>
 <% end %>    
       </tr>
     <% end %>
@@ -39,6 +37,4 @@
 </table>
 </div>
 <br>
-
-
 <br>
