@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body style="background-color:#063561df;">
 <!-- ======= Testimonials Section ======= -->
   <section id="testimonials" class="testimonials section-bg">
@@ -44,7 +45,12 @@
             comments: <%= talk.comments_number %>
             shares: <%= talk.shares_number %>
           </div>
-          <div>Like icon/action Comment icon/action Share icon/action
+          <div>
+          <p>
+    <%= link_to toggle_favorite_talk_path(talk), remote: true, method: :post do %>
+              <%= render 'talks/like_button', talk: talk %>
+            <% end %>        
+    </p>
           </div>
           <br />
         </div>

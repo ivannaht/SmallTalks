@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="card text-center">
   <div class="card-header">
     <%= image_tag(@talk.user.photo, size: '50', :style => "border-radius: 30px; border: 1px solid grey; margin:5px;") if @talk.user.photo.present? %>
@@ -21,6 +22,12 @@
     dislikes: <%= @talk.dislikes_number %>
     comments: <%= @talk.comments_number %>
     shares: <%= @talk.shares_number %>
+
+    <p>
+    <%= link_to toggle_favorite_talk_path(@talk), remote: true, method: :post do %>
+              <%= render 'talks/like_button', talk: @talk %>
+            <% end %>        
+    </p>
   </div>
 </div>
 
