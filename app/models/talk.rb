@@ -9,5 +9,6 @@ class Talk < ApplicationRecord
   #ralationship
   belongs_to :user
   has_one_attached :photo
+  acts_as_favoritable
   
 end

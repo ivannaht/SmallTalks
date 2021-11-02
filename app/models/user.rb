@@ -18,5 +18,6 @@ class User < ApplicationRecord
   #relationship       
   has_many :talks
   has_one_attached :photo
+  acts_as_favoritor
   
 end
