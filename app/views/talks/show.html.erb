@@ -1,6 +1,6 @@
 <div class="card text-center">
   <div class="card-header">
-    <%= image_tag(@talk.user.photo, size: '50') if @talk.user.photo.present? %>
+    <%= image_tag(@talk.user.photo, size: '50', :style => "border-radius: 30px; border: 1px solid grey; margin:5px;") if @talk.user.photo.present? %>
     
     <strong><%= @talk.user.first_name %></strong>
     <strong><%= @talk.user.last_name %></strong>
