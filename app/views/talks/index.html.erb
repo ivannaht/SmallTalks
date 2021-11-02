@@ -7,8 +7,7 @@
       <th>Title</th>
       <th>Text</th>
       <th>Photo</th>
-      <th>Likes</th>
-      <th>Dislikes</th>
+      <th>Likes</th>      
       <th>Comments</th>
       <th>Shares</th>
       <th>User</th>
@@ -22,7 +21,6 @@
         <td><%= talk.text %></td>
         <td><%= image_tag(talk.photo, size: '150') if talk.photo.present? %></td>
         <td><%= talk.likes.count %></td>
-        <td><%= talk.dislikes_number %></td>
         <td><%= talk.comments_number %></td>
         <td><%= talk.shares_number %></td>
         <td><%= talk.user.nickname %></td>
