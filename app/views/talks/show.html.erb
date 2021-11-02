@@ -21,7 +21,16 @@
     dislikes: <%= @talk.dislikes_number %>
     comments: <%= @talk.comments_number %>
     shares: <%= @talk.shares_number %>
-    <%= button_to 'Like', talk_likes_path(@talk), method: :post %>
+   
+
+<% pre_like = @talk.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', talk_like_path(@talk, pre_like), method: :delete %>
+<% else %>
+  <%= button_to 'Like', talk_likes_path(@talk), method: :post %>
+<% end %>
+
+
   </div>
 </div>
 
