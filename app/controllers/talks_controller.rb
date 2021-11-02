@@ -61,6 +61,13 @@ class TalksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def toggle_favorite 
+      
+    @talk = Talk.find(params[:id])
+    current_user.favorited?(@talk) ? current_user.unfavorite(@talk) : current_user.favorite(@talk)
+    redirect_to talks_path
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -73,8 +80,6 @@ class TalksController < ApplicationController
       params.require(:talk).permit(:title, :text, :photo, :likes_number, :dislikes_number, :comments_number, :shares_number, :user_id)
     end
 
-    def toggle_favorite
-      @talk = Talk.find(params[:id])
-      current_user.favorited?(@talk) ? current_user.unfavorite(@talk) : current_user.favorite(@talk)
-    end
+    
+
 end

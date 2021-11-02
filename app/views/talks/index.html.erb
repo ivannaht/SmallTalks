@@ -1,4 +1,17 @@
-<h1>Talks</h1>
+<div class="container">
+  <p>
+    <h1>Favorite Talks</h1>
+  </p>
+
+      <div class="favorites">
+        <% @favorite_talks.each do |talk| %>
+          <%= render 'talk', talk: talk %>
+        <% end %>
+      </div>
+    <br>
+
+    
+<h1>List of Talks</h1>
 <div class="table-responsive-sm">
 <table  class=" table table-hover align-middle" >
   <thead class="table-light">
@@ -8,7 +21,6 @@
       <th>Text</th>
       <th>Photo</th>
       <th>Likes</th>
-      <th>Dislikes</th>
       <th>Comments</th>
       <th>Shares</th>
       <th>User</th>
@@ -22,11 +34,11 @@
         <td><%= talk.text %></td>
         <td><%= image_tag(talk.photo, size: '150') if talk.photo.present? %></td>
         <td><%= talk.likes_number %></td>
-        <td><%= talk.dislikes_number %></td>
         <td><%= talk.comments_number %></td>
         <td><%= talk.shares_number %></td>
         <td><%= talk.user.nickname %></td>
-        <td><%= link_to "like", toggle_favorite_talk_path(talk), remote: true, method: :post %>
+        <td>
+        
         <%= link_to toggle_favorite_talk_path(talk), remote: true, method: :post do %>
               <%= render 'talks/like_button', talk: talk %>
             <% end %></td>
@@ -50,33 +62,7 @@
 
 
 
-<div class="container">
-  <h1>Talks</h1>
-  <hr>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <% @talks.each do |talk| %>
-        <div class="d-flex">
-          <div>
-            <%= link_to toggle_favorite_talk_path(talk), remote: true, method: :post do %>
-              <%= render 'talks/like_button', talk: talk %>
-            <% end %>
-          </div>
-          <div>
-            <h3><%= talk.title %></h3>
-            <p><%= talk.text %></p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <h3>Liked Talks</h3>
-      <div class="favorites">
-        <% @favorite_talks.each do |talk| %>
-          <%= render 'talk', talk: talk %>
-        <% end %>
-      </div>
-    </div>
+
   </div>
 </div>
 
