@@ -2,17 +2,17 @@
  
 
   <div class="field form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title,  class:"form-control w-100"%>
+    <% form.label :title %>
+    <%= form.text_field :title,  class:"form-control w-100", placeholder: 'Title' %>
   </div>
   <br>
   <div class="field form-group">
-    <%= form.label :text %>
-    <%= form.text_area :text, class:"form-control w-100", :rows => 10 %>
+    <% form.label :text %>
+    <%= form.text_area :text, class:"form-control w-100", :rows => 10, placeholder: 'Text' %>
   </div>
 <br>
   <div class="field form-group mb-3">
-    <%= form.label :photo %>
+    <% form.label :photo %>
     <%= form.file_field :photo,  accept: 'image/png,image/gif,image/jpeg', class:"form-control w-50" %>     
   </div>
   <div class="field">

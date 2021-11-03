@@ -15,7 +15,7 @@
               <p></p>
               <h4><%= link_to talk.title, talk %></a></h4>
               <p><%= image_tag(talk.photo, size: '50', align: 'left', :style => "margin-right:10px;") if talk.photo.present? %>
-              <%= talk.text %>
+              <td><%= truncate(talk.text, length: 1000, omission: '...(see more)')%></td>
               </p>
             </div>
           </div>
@@ -50,8 +50,8 @@
         <tbody>
         <% @talks.each do |talk| %>
         <tr vertical-align: middle>
-          <td><%= talk.title %></td>
-          <td><%= talk.text %></td>
+          <td><%= talk.title %></td>          
+          <td><%= truncate(talk.text, length: 190, omission: '...')%></td>
           <td><%= image_tag(talk.photo, size: '150') if talk.photo.present? %></td>
           <td><%= talk.likes_number %></td>
           <td><%= talk.comments_number %></td>
