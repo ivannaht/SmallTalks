@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, format: {with: /[a-z0-9_]{2,50}/}
 
   
+  validate :validate_age
 
   
   
@@ -20,5 +21,15 @@ class User < ApplicationRecord
   has_many :talks
   has_one_attached :photo
   acts_as_favoritor
+
+  private
+  def validate_age
+    if dob.present? && dob > 18.years.ago.to_date 
+      errors.add(:dob, 'You should be over 18 years old.')
+    elsif dob.present? && dob < 100.years.ago.to_date
+      errors.add(:dob, 'You should be less than 100 years old.')
+    end
+  end
+
   
 end
