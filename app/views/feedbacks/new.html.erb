@@ -1,0 +1,12 @@
+<section>
+
+<%= link_to "List of Feedbacks", feedbacks_path %>
+
+  <div class="container">
+    <div class="section-title">
+      <h2>New Feedback</h2>
+    </div>
+    <%= render 'form', feedback: @feedback %>
+</div>
+
+</section>

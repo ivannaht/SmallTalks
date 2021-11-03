@@ -21,6 +21,7 @@ class User < ApplicationRecord
   has_many :talks
   has_one_attached :photo
   acts_as_favoritor
+  has_one :feedback, dependent: :destroy
 
 
   def calculate_age(dob)

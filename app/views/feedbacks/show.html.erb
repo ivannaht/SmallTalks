@@ -1,0 +1,38 @@
+<body>
+  <main id="main">
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container">
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  <strong>
+                  <%= @feedback.recommendation == 'yes' ? 'I will recommend this Site to my friends' : 'I won\'t recommend this Site to my friends' %>
+                  </strong>
+                  <p>
+                  <%= @feedback.experience %>
+                  </p>
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <% image_tag(@feedback.user.photo, size: '50', :style => "border-radius: 30px; border: 1px solid grey; margin:5px;") if @feedback.user.photo.present? %>
+                <%= image_tag(@feedback.user.photo, class:"testimonial-img") if @feedback.user.photo.present?  %>
+                <h3><%= @feedback.user.first_name + ' ' + @feedback.user.last_name %></strong></h3>
+                <h4> <%= @feedback.user.calculate_age(@feedback.user.dob) %> years old</h4>
+                <br />
+                <div>
+                <% if current_user.admin?%>
+                <%= link_to 'Edit', edit_feedback_path(@feedback), class:"btn btn-outline-info" %>
+                <% end %>
+                </div>
+                <br />                
+              </div>              
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    </body>
+    <br>

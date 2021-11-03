@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   root 'home#index'
   get 'my_talks', action: :index, controller: 'my_talks'
+  resources :feedbacks
 
   resources :talks, only: :index do
   member do

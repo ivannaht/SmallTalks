@@ -1,0 +1,34 @@
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>List of Feedbacks</h2>
+    </div>
+    <div class="table-responsive-sm">
+      <table  class=" table table-hover align-middle" >
+        <thead class="table-light">
+          <tr vertical-align: middle>
+          <th>Recommendation</th>
+          <th>Experience</th>
+          <th>User</th>
+          <th colspan="4"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @feedbacks.each do |feedback| %>
+        <tr vertical-align: middle>
+          <td><%= feedback.recommendation %></td>          
+          <td><%= truncate(feedback.experience, length: 190, omission: '...')%></td>
+          <td><%= feedback.user.nickname %></td>
+          <td><%= link_to 'View', feedback, class:"btn btn-outline-primary" %></td>        
+          <% if current_user.admin?%>
+          <td><%= link_to 'Edit', edit_feedback_path(feedback), class:"btn btn-outline-info" %></td>
+          <td><%= link_to 'Delete', feedback, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %></td>
+          <% end %>    
+        </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <br><br>
+  </div>
+</section>
