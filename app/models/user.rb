@@ -6,12 +6,13 @@ class User < ApplicationRecord
          
   validates :first_name, :last_name, :nickname, :dob, :age, presence: true 
   
-  validates :first_name, :last_name, format: {with: /[A-Za-z]{5,50}/}
+  validates :first_name, :last_name, format: {with: /[A-Za-z]{2,50}/}
 
-  validates :email, uniqueness: true, format: {with: /[a-z0-9_]{5,50}/}
+  validates :email, uniqueness: true, format: {with: /[a-z0-9_]{2,50}/}
 
   validates :age, numericality: {greate_than: 18, less_than: 110}, on: :create
-   
+
+  
   
 
 

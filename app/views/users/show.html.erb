@@ -5,7 +5,7 @@
     <div class="container">
       <div class="section-title">
           <h2>User's details</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+          <p>Here you can see the user`s info and talks</p>
       </div>
       <div class="testimonial-item">
         <h3>
@@ -41,14 +41,12 @@
         <div class="card-footer text-muted">
           <div>
             likes: <%= talk.likes_number %>
-            dislikes: <%= talk.dislikes_number %>
             comments: <%= talk.comments_number %>
-            shares: <%= talk.shares_number %>
           </div>
           <div>
           <p>
     <%= link_to toggle_favorite_talk_path(talk), remote: true, method: :post do %>
-              <%= render 'talks/like_button', talk: talk %>
+              <%= render 'talks/heart_button', talk: talk %>
             <% end %>        
     </p>
           </div>

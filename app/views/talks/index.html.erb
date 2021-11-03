@@ -1,70 +1,78 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="container">
-  <p>
-    <h1>Favorite Talks</h1>
-  </p>
 
-      <div class="favorites">
-        <% @favorite_talks.each do |talk| %>
-          <%= render 'talk', talk: talk %>
+<!-- ======= Favorites Section ======= -->
+    <section id="favorites" class="favorites section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>Favorite Talks</h2>
+          <p>Here you can see the talks that you added to your favorites</p>
+        </div>
+        <div class="favorites">
+          <% @favorite_talks.each do |talk| %>
+          <div class="row">
+            <div class="col">
+              <div class="icon-box">
+              <p></p>
+              <h4><%= link_to talk.title, talk %></a></h4>
+              <p><%= image_tag(talk.photo, size: '50', align: 'left', :style => "margin-right:10px;") if talk.photo.present? %>
+              <%= talk.text %>
+              </p>
+            </div>
+          </div>
+          <br>
+        </div>
+        </p>
         <% end %>
       </div>
-    <br>
-
-    
-<h1>List of Talks</h1>
-<div class="table-responsive-sm">
-<table  class=" table table-hover align-middle" >
-  <thead class="table-light">
-    <tr vertical-align: middle>
-
-      <th>Title</th>
-      <th>Text</th>
-      <th>Photo</th>
-      <th>Likes</th>
-      <th>Comments</th>
-      <th>Shares</th>
-      <th>User</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
- <tbody>
-    <% @talks.each do |talk| %>
-      <tr vertical-align: middle>
-        <td><%= talk.title %></td>
-        <td><%= talk.text %></td>
-        <td><%= image_tag(talk.photo, size: '150') if talk.photo.present? %></td>
-        <td><%= talk.likes_number %></td>
-        <td><%= talk.comments_number %></td>
-        <td><%= talk.shares_number %></td>
-        <td><%= talk.user.nickname %></td>
-        <td>
-        
-        <%= link_to toggle_favorite_talk_path(talk), remote: true, method: :post do %>
-              <%= render 'talks/like_button', talk: talk %>
-            <% end %></td>
-        <td><%= link_to 'View', talk, class:"btn btn-outline-primary" %></td>
-        
-<% if current_user.admin?%>
-        <td><%= link_to 'Edit', edit_talk_path(talk), class:"btn btn-outline-info" %></td>
-        <td><%= link_to 'Delete', talk, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %></td>
-        
-<% end %>    
-      </tr>
-
-
-
-    <% end %>
-  </tbody>
-</table>
-</div>
-<br>
-<br>
-
-
-
-
+    </div>
   </div>
-</div>
+</section><!-- Favorites Section -->
+<br>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>List of Talks</h2>
+    </div>
+    <div class="table-responsive-sm">
+      <table  class=" table table-hover align-middle" >
+        <thead class="table-light">
+          <tr vertical-align: middle>
+          <th>Title</th>
+          <th>Text</th>
+          <th>Photo</th>
+          <th>Likes</th>
+          <th>Comments</th>
+          <th>User</th>
+          <th colspan="4"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @talks.each do |talk| %>
+        <tr vertical-align: middle>
+          <td><%= talk.title %></td>
+          <td><%= talk.text %></td>
+          <td><%= image_tag(talk.photo, size: '150') if talk.photo.present? %></td>
+          <td><%= talk.likes_number %></td>
+          <td><%= talk.comments_number %></td>
+          <td><%= talk.user.nickname %></td>
+          <td>  
+          <%= link_to toggle_favorite_talk_path(talk), remote: true, method: :post do %>
+          <%= render 'talks/heart_button', talk: talk %>
+          <% end %>
+          </td>
+          <td><%= link_to 'View', talk, class:"btn btn-outline-primary" %></td>        
+          <% if current_user.admin?%>
+          <td><%= link_to 'Edit', edit_talk_path(talk), class:"btn btn-outline-info" %></td>
+          <td><%= link_to 'Delete', talk, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %></td>
+          <% end %>    
+        </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <br><br>
+  </div>
+</section>
 
  
