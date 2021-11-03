@@ -20,7 +20,8 @@
             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
             Email: <%= @user.email %> |
             Date of Birth: <%= @user.dob %> |
-            Age: <%= @user.age %>
+            Age: <%= @user.calculate_age(@user.dob) %>
+
             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
           </p>
             <%= image_tag(@user.photo, size: '300') if @user.photo.present? %>

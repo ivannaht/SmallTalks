@@ -22,6 +22,11 @@ class User < ApplicationRecord
   has_one_attached :photo
   acts_as_favoritor
 
+
+  def calculate_age(dob)
+    ((Time.zone.now - dob.to_time) / 1.year.seconds).floor
+  end
+
   private
   def validate_age
     if dob.present? && dob > 18.years.ago.to_date 
@@ -31,5 +36,7 @@ class User < ApplicationRecord
     end
   end
 
-  
+ 
+
+
 end
