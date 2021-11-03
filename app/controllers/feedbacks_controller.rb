@@ -11,8 +11,7 @@ class FeedbacksController < ApplicationController
 
   
     def new
-      @feedback = Feedback.new
-      
+      @feedback = Feedback.new      
     end
 
     def edit

@@ -15,8 +15,7 @@
                   <%= @feedback.experience %>
                   </p>
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <% image_tag(@feedback.user.photo, size: '50', :style => "border-radius: 30px; border: 1px solid grey; margin:5px;") if @feedback.user.photo.present? %>
+                </p>                
                 <%= image_tag(@feedback.user.photo, class:"testimonial-img") if @feedback.user.photo.present?  %>
                 <h3><%= @feedback.user.first_name + ' ' + @feedback.user.last_name %></strong></h3>
                 <h4> <%= @feedback.user.calculate_age(@feedback.user.dob) %> years old</h4>
