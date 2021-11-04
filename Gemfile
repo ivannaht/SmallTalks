@@ -34,6 +34,8 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 #factory-bot
 gem 'factory_bot'
+#
+gem 'acts_as_favoritor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -52,6 +54,10 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  #
+  gem 'simplecov', require: false, group: :test
+
+
 end
 
 group :test do

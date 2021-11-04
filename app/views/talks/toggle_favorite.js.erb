@@ -1,0 +1,16 @@
+var talkId = '<%= @talk.id %>'
+
+function toggleLikeButton(talkId, favoritedTalk) {
+  let likeButton = document.querySelector(`.like-icon[data-id='${talkId}']`)
+  likeButton.classList.toggle('red');
+  if (likeButton.classList.contains('red')) {
+    const favoriteList = document.querySelector('.favorites');
+    favoriteList.insertAdjacentHTML('beforeend', favoritedTalk)
+  }
+  else {
+    document.querySelector(`.favorite[data-id='${talkId}']`).remove()
+  }
+}
+
+toggleLikeButton(talkId, '<%= j render "talks/talk", talk: @talk %>');
+

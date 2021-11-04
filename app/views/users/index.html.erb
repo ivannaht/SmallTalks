@@ -1,31 +1,36 @@
-
-<h1>List of Users</h1>
-<div class="table-responsive-sm">
-<table  class=" table table-hover align-middle" >
-  <thead class="table-light">
-    <tr vertical-align: middle>
-      <th>Photo</th>
-      <th>Full Name</th>
-      <th>Nickname</th>
-      <th>Email</th>
-      
-      <th>Age</th>
-      
-    </tr>
-  </thead>
- <tbody>
-    <% @users.each do |user| %>
-    <tr vertical-align: middle>
-        <td><%= image_tag(user.photo, size: '50') if user.photo.present? %></td>
-        <td><%= link_to user.first_name + ' ' + user.last_name, user %></td>
-        <td><%= user.nickname %></td>
-        <td><%= user.email %></td>
-        <td><%= user.age %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
-
-<br>
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>List of Users</h2>
+    </div>
+    <div class="table-responsive-sm">
+    <table  class=" table table-hover align-middle" >
+      <thead class="table-light">
+        <tr vertical-align: middle>
+          <th>Photo</th>
+          <th>Full Name</th>
+          <th>Nickname</th>
+          <th>Email</th>          
+          <th>DOB</th>
+          <th>Age</th>
+          
+        </tr>
+      </thead>
+    <tbody>
+        <% @users.each do |user| %>
+        <tr vertical-align: middle>
+            <td><%= image_tag(user.photo, size: '50', :style => "border-radius: 3px; border: 1px solid grey; margin:5px;") if user.photo.present? %></td>
+            <td><%= link_to user.first_name + ' ' + user.last_name, user %></td>
+            <td><%= user.nickname %></td>
+            <td><%= user.email %></td>
+            <td><%= user.dob %></td>
+            <td><%= user.calculate_age(user.dob) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+    <br>
+  </div>
+</section>
 
