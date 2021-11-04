@@ -18,6 +18,5 @@ class User < ApplicationRecord
   #relationship       
   has_many :talks
   has_one_attached :photo
-  has_many :likes, dependent: :destroy
   
 end
