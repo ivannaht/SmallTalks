@@ -5,7 +5,7 @@
       <div class="section-title">
           <h2>User's details</h2>
           <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
-      
+      </div>
       <div class="testimonial-item">
         <h3>
             <strong><%= @user.first_name %></strong>
@@ -29,40 +29,30 @@
         <div class="card-header">  
           <h3><strong>Talks</strong></h3>
         </div>
-    <% @user.talks.each do |talk| %>  
+        <% @user.talks.each do |talk| %>  
         <div class="card-body">
           <%= image_tag(talk.photo, size: '150', :align=> "left") if talk.photo.present? %>
           <h5 class="card-title"><%= talk.title %></h5>
           <p class="card-text">
           <%= talk.text %>
         <br>    
-        </div>  
-         <div class="card-footer text-muted">
-    likes: <%= talk.likes.count %>    
-    comments: <%= talk.comments_number %>
-    shares: <%= talk.shares_number %>
-       <div><% pre_like = talk.likes.find { |like| like.user_id == current_user.id} %>
-      <% if pre_like %>
-      <%= link_to talk_like_path(talk, pre_like), method: :delete do %>
-      <%= render '/talks/buttons/unlike_button'%>
-      <% end %>
-      <% else %>
-      <%= link_to talk_likes_path(talk), method: :post do %>
-      <%= render '/talks/buttons/like_button'%>
-      <% end %>
-      <% end %>
+        </div>    
+        <div class="card-footer text-muted">
+          <div>
+            likes: <%= talk.likes_number %>
+            dislikes: <%= talk.dislikes_number %>
+            comments: <%= talk.comments_number %>
+            shares: <%= talk.shares_number %>
+          </div>
+          <div>Like icon/action Comment icon/action Share icon/action
+          </div>
+          <br />
+        </div>
+        <% end %>
       </div>
-    
       <br>
-      </div>
-      
-    <% end %>
-      
-      </div>
-      <p><br></p>
+    </div>    
   </section> 
-  
-  
  <!-- End Testimonials Section -->
  <p>
  <br>

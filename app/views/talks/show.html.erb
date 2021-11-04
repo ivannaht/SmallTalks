@@ -1,6 +1,7 @@
 <div class="card text-center">
   <div class="card-header">
     <%= image_tag(@talk.user.photo, size: '50', :style => "border-radius: 30px; border: 1px solid grey; margin:5px;") if @talk.user.photo.present? %>
+    
     <strong><%= @talk.user.first_name %></strong>
     <strong><%= @talk.user.last_name %></strong>
   </div>
@@ -14,26 +15,25 @@
    <% if current_user.admin?%>
     <%= link_to 'Edit', edit_talk_path(@talk), class:"btn btn-outline-info" %>
    <% end %>
-  </div>
-  
+    </div>
   <div class="card-footer text-muted">
-    likes: <%= @talk.likes.count %>    
+    likes: <%= @talk.likes.count %>
+    dislikes: <%= @talk.dislikes_number %>
     comments: <%= @talk.comments_number %>
     shares: <%= @talk.shares_number %>
-    <p>
-    <% pre_like = @talk.likes.find { |like| like.user_id == current_user.id} %>
-    <% if pre_like %>
-      <%= link_to talk_like_path(@talk, pre_like), method: :delete do %>
-      <%= render '/talks/buttons/unlike_button'%>
-    <% end %>
-    <% else %>
-      <%= link_to talk_likes_path(@talk), method: :post do %>
-      <%= render '/talks/buttons/like_button'%>
-    <% end %>
-    <% end %>
-    <p>
- </div>
- </div>
+   
+
+<% pre_like = @talk.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', talk_like_path(@talk, pre_like), method: :delete %>
+<% else %>
+  <%= button_to 'Like', talk_likes_path(@talk), method: :post %>
+<% end %>
+
+
+  </div>
+</div>
+
 <br>
 
 
