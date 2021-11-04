@@ -21,7 +21,7 @@
         <td><%= talk.title %></td>
         <td><%= talk.text %></td>
         <td><%= image_tag(talk.photo, size: '150') if talk.photo.present? %></td>
-        <td><%= talk.likes.count %></td>
+        <td><%= talk.likes_number %></td>
         <td><%= talk.dislikes_number %></td>
         <td><%= talk.comments_number %></td>
         <td><%= talk.shares_number %></td>

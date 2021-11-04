@@ -6,9 +6,5 @@ Rails.application.routes.draw do
   root 'home#index'
   
   get 'my_talks', action: :index, controller: 'my_talks'
-
-  resources :talks do
-    resources :likes
-  end
   
 end
