@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe Talk, type: :model do
   context 'validation tests' do 
   it 'ensures title presence' do
-  talk = Talk.new(text: 'Text test test test test test test one two', photo: 'photo url2').save
+  talk = Talk.new(text: 'Text test test test test test test one two', photo: Rack::Test::UploadedFile.new('spec/support/test_image.jpg', 'image/jpg')).save
   expect(talk).to eq(false)
   end
   it 'ensures text presence' do
-  talk = Talk.new(title: 'Title test test test test test test one two', photo: 'photo url2').save
+  talk = Talk.new(title: 'Title test test test test test test one two', photo: Rack::Test::UploadedFile.new('spec/support/test_image.jpg', 'image/jpg')).save
   expect(talk).to eq(false)   
   end
   it 'ensures photo presence' do
