@@ -1,7 +1,7 @@
 <%= form_with(model: talk) do |form| %>
  <div class="field form-group">
-    <%= form.label :text, "Theme" %>
-    <%= form.select :text, ['Nature', 'Pets', 'Health', 'Lifestyle', 'Traveling', 'Science fiction', 'Technologies', 
+    <%= form.label :theme, "Theme" %>
+    <%= form.select :theme, ['Nature', 'Pets', 'Health', 'Lifestyle', 'Traveling', 'Science fiction', 'Technologies', 
     'Education', 'Other'],  class:"form-control w-100" %>
   </div>
 <br>

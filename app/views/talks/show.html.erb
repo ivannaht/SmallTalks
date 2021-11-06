@@ -13,6 +13,9 @@
     <br>
     <%= image_tag(@talk.photo, size: '150') if @talk.photo.present? %>
    </p>
+   <p class="card-text">
+    <i><%="Theme: #{@talk.theme if @talk.theme.present?}" %></i>
+    </p>
    <% if current_user.admin?%>
     <%= link_to 'Edit', edit_talk_path(@talk), class:"btn btn-outline-info" %>
    <% end %>

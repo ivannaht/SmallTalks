@@ -33,10 +33,13 @@
         </div>
         <% @user.talks.each do |talk| %>  
         <div class="card-body">
-          <%= image_tag(talk.photo, size: '150', :align=> "left") if talk.photo.present? %>
-          <h5 class="card-title"><%= talk.title %></h5>
-          <p class="card-text">
+          <%= image_tag(talk.photo, size: '150', :align=> "left", :style => "margin:10px;") if talk.photo.present? %>
+          <h5 class="card-title" style="text-align: left;" ><%= talk.title %></h5>
+          <p class="card-text" style="text-align: left;">
           <%= talk.text %>
+          <p class="card-text" style="text-align: left;">
+          <i><%="Theme: #{talk.theme if talk.theme.present?}" %></i>
+          </p>
         <br>    
         </div>    
         <div class="card-footer text-muted">
