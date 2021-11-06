@@ -1,6 +1,10 @@
 <%= form_with(model: talk) do |form| %>
- 
-
+ <div class="field form-group">
+    <%= form.label :text, "Theme" %>
+    <%= form.select :text, ['Nature', 'Pets', 'Health', 'Lifestyle', 'Traveling', 'Science fiction', 'Technologies', 
+    'Education', 'Other'],  class:"form-control w-100" %>
+  </div>
+<br>
   <div class="field form-group">
     <% form.label :title %>
     <%= form.text_field :title,  class:"form-control w-100", placeholder: 'Title' %>
