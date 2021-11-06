@@ -15,12 +15,8 @@ class FeedbacksController < ApplicationController
     end
 
     def edit
-    end
-  
-    def already_give_feedback?
-      Feedback.where(user_id: current_user.id).exists?
-    end
-
+    end  
+    
     def create
       
         if already_give_feedback?
@@ -75,5 +71,8 @@ class FeedbacksController < ApplicationController
       params.require(:feedback).permit(:recommendation, :experience, :user_id)
     end
 
+    def already_give_feedback?
+      Feedback.where(user_id: current_user.id).exists?
+    end
 
 end
