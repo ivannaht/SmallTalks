@@ -7,10 +7,10 @@
     <table  class=" table table-hover align-middle" >
       <thead class="table-light">
         <tr vertical-align: middle>
-
           <th>Title</th>
           <th>Text</th>
           <th>Photo</th>
+          <th>Theme</th>
           <th>Likes</th>
           <th>Comments</th>
           <th>User</th>
@@ -26,6 +26,7 @@
             <td><%= talk.title %></td>
             <td><%= truncate(talk.text, length: 190, omission: '...')%></td>
             <td><%= image_tag(talk.photo, size: '150') if talk.photo.present? %></td>
+            <td><%= talk.theme if talk.theme.present? %></td>
             <td><%= talk.likes_number %></td>
             <td><%= talk.comments_number %></td>
             <td><%= talk.user.nickname %></td>
