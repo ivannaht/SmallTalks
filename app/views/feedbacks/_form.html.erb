@@ -3,30 +3,21 @@
   <div class="field form-group">
    <h4> <%= form.label :recommendation, "Would you recommend our site to your friends?" %></h4>
  <p>
-    <div class="radio">
-   
+    <div class="radio">   
      <%= form.radio_button :recommendation, 'yes' %> yes<br />
-    <%= form.radio_button :recommendation, 'no' %> no<br />   
-
-     
-
+    <%= form.radio_button :recommendation, 'no' %> no<br />  
 </div>
 </p>
 </div>
-
-
-
   <br>
   <div class="field form-group">
     <h4><%= form.label :experience, "What was your experience of using our Site?" %></h4>
     <%= form.text_area :experience, class:"form-control w-100", :rows => 10, placeholder: 'experience' %>
   </div>
-<br>
-  
+<br>  
   <div class="field">
     <%= form.text_field :user_id, value: current_user.id, type: :hidden %>
   </div>
-
   <div class="actions">
     <%= form.submit "Save", class:"btn btn-primary" %>
   </div>

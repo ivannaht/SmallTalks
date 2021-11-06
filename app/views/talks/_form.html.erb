@@ -1,8 +1,9 @@
 <%= form_with(model: talk) do |form| %>
- <div class="field form-group">
-    <%= form.label :theme, "Theme" %>
+
+ <div class="field form-group w-50">
+    <% form.label :theme, "Theme" %>
     <%= form.select :theme, ['Nature', 'Pets', 'Health', 'Lifestyle', 'Traveling', 'Science fiction', 'Technologies', 
-    'Education', 'Other'],  class:"form-control w-100" %>
+    'Education', 'Other'],  :prompt => 'Select the theme...', class:"form-control w-50" %>
   </div>
 <br>
   <div class="field form-group">
