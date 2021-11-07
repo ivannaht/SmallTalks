@@ -1,35 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe Talk, type: :model do
+
   context 'validation tests' do 
-  it 'ensures title presence' do
-  talk = Talk.new(text: 'Text test test test test test test one two', photo: Rack::Test::UploadedFile.new('spec/support/test_image.jpg', 'image/jpg')).save
-  expect(talk).to eq(false)
-  end
-  it 'ensures text presence' do
-  talk = Talk.new(title: 'Title test test test test test test one two', photo: Rack::Test::UploadedFile.new('spec/support/test_image.jpg', 'image/jpg')).save
-  expect(talk).to eq(false)   
-  end
-  it 'ensures photo presence' do
-  talk = Talk.new(title: 'Title test test test test test test one two', text: 'Text  one two').save
-  expect(talk).to eq(false)   
-  end
-  it 'should save successfully' do end
+  let(:talk) { build(:random_talk, title: 'test title') }
 
-  end
-
-  context 'scope tests' do 
-    let (:params) {{title: 'test title test test test test test test', text: 'test text test test test test test test', photo: 'test photo' }}
-    before (:each) do
-      Talk.new(params).save
-      Talk.new(params).save
-      Talk.new(params).save
-      Talk.new(params).save
-    
-    
+    it 'ensures title presence' do
+    talk.title = nil
+    expect(talk.save).to eq(false)
     end
-  
+    it 'ensures text presence' do
+    talk.text = nil
+    expect(talk.save).to eq(false)
+    end
+    it 'ensures photo presence' do
+    talk.photo = nil
+    expect(talk.save).to eq(false)
+    end
+    it 'ensures theme presence' do
+    talk.theme = nil
+    expect(talk.save).to eq(false)   
+    end
+    it 'should save successfully' do
+    expect(talk.save).to eq(false)  
+    end
+
   end
+
+  context 'scope tests' do
+    let(:talks) { create_list(:random_talk, 5) }    
+  end 
 
 end
 
