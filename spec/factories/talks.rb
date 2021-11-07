@@ -1,6 +1,6 @@
 FactoryBot.define do
     factory :talk do
-       title { "Test title for Pets" }    
+        title { "Test title for Pets" }    
         text { "Test text for Pets" }
         photo { Rack::Test::UploadedFile.new('spec/support/test_image.jpg', 'image/jpg') }
         theme { "Pets" }              

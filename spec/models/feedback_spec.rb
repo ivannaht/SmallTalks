@@ -1,29 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe Feedback, type: :model do
-  context 'validation tests' do 
+  context 'validation tests' do
+    let(:feedback) { build(:random_feedback, experience: 'test feedback') } 
     it 'ensures recommendation presence' do
-    feedback = Feedback.new(experience: 'Experience one two').save
-    expect(feedback).to eq(false)
+    feedback.recommendation = nil
+    expect(feedback.save).to eq(false)
     end
     it 'ensures experience presence' do
-    feedback = Feedback.new(recommendation: 'yes').save
-    expect(feedback).to eq(false)   
+    feedback.experience = nil
+    expect(feedback.save).to eq(false) 
     end    
-    it 'should save successfully' do end
+    it 'should save successfully' do
+    expect(feedback.save).to eq(false) 
+    end
 end
 
-context 'scope tests' do 
-  let (:params) {{recommendation: 'test recommendation', experience: 'test experience' }}
-  before (:each) do
-    Feedback.new(params).save
-    Feedback.new(params).save
-    Feedback.new(params).save
-    Feedback.new(params).save
-  
-  
-  end
-
-end
+context 'scope tests' do
+  let(:feedbackss) { create_list(:random_feedback, 3) }    
+end 
 
 end
