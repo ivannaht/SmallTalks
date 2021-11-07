@@ -1,13 +1,34 @@
 {
   "RSpec": {
     "coverage": {
-      "/mnt/c/Users/User/Git_workspace/SmallTalks_2/SmallTalks/spec/models/feedback_spec.rb": {
+      "/mnt/c/Users/User/Git_workspace/SmallTalks_2/SmallTalks/spec/models/user_spec.rb": {
         "lines": [
           1,
           null,
           1,
           1,
-          4,
+          9,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
           1,
           1,
           1,
@@ -718,9 +739,9 @@
           null,
           null,
           1,
-          4,
           1,
-          4,
+          1,
+          1,
           null,
           null
         ]
@@ -758,10 +779,10 @@
           null,
           1,
           1,
-          6,
-          6,
-          6,
-          6,
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -787,11 +808,6 @@
       },
       "/mnt/c/Users/User/Git_workspace/SmallTalks_2/SmallTalks/spec/factories/users.rb": {
         "lines": [
-
-        ]
-      },
-      "/mnt/c/Users/User/Git_workspace/SmallTalks_2/SmallTalks/config/routes.rb": {
-        "lines": [
           1,
           null,
           1,
@@ -800,10 +816,19 @@
           1,
           1,
           1,
+          1,
+          1,
+          null,
           null,
           1,
           1,
-          1,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          null,
           null,
           null,
           null,
@@ -845,12 +870,33 @@
           null,
           1,
           1,
+          8,
           0,
-          0,
-          0,
+          8,
           0,
           null,
           null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/User/Git_workspace/SmallTalks_2/SmallTalks/config/routes.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -895,47 +941,8 @@
           null,
           null
         ]
-      },
-      "/mnt/c/Users/User/Git_workspace/SmallTalks_2/SmallTalks/spec/models/talk_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          6,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null
-        ]
       }
     },
-    "timestamp": 1636285674
+    "timestamp": 1636290715
   }
 }

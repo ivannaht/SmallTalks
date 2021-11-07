@@ -17,7 +17,7 @@ RSpec.describe Feedback, type: :model do
 end
 
 context 'scope tests' do
-  let(:feedbackss) { create_list(:random_feedback, 3) }    
+  let(:feedbacks) { create_list(:random_feedback, 3) }    
 end 
 
 end
