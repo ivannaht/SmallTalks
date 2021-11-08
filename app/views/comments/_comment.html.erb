@@ -1,6 +1,6 @@
 <% unless comment.parent_id || !comment.persisted? %>
-  <div class="card">
-    <div class="card-body">
+  <div>
+    <div>
       <%= comment.body %>
       <%= link_to 'reply', new_talk_comment_path(@talk, parent_id: comment.id), remote: true, class: 'd-block' %>
       </div>
