@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :comments
-  resources :talks
+   
+  resources :talks, :shallow => true do 
+    resources :comments
+  end
+
   devise_for :users
   resources :users
   root 'home#index'
