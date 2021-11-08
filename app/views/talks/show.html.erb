@@ -34,20 +34,22 @@
 <br>
 <div class="card my-1">
   <div class="card-body">
-<p class="font-weight-bold">Comments</p>
+<strong><p>Comments</p></strong>
 <%= render @talk.comments %>
-<br>
-
-    
+<br>    
     <%= form_with(model: [@talk, @talk.comments.build]) do |f| %>
       <div class="form-group">
         <%= f.label 'New comment' %>
-        <%= f.text_area :body, class: 'form-control w-50' %>
+        <%= f.text_area :body, class: 'form-control w-75' %>
       </div>
-      <%= f.submit 'Submit', class: 'btn btn-primary' %>
-    <% end %>
+      <br>
+      <p>
+      <%= f.submit 'Save', class: 'btn btn-primary' %>
+      </p>
+    <% end %>    
   </div>
-</div>
+  </div>
+<br>
 
 
 

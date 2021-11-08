@@ -4,10 +4,13 @@
       <%= f.hidden_field :parent_id %>
       <div class="form-group">
         <%= f.label 'Reply' %>
-        <%= f.text_area :body, class: 'form-control w-50' %>
+        <%= f.text_area :body, class: 'form-control w-75' %>
       </div>
-      <%= f.submit 'Submit', class: 'btn btn-primary' %>
-      <%= link_to 'Cancel', talk_path(@talk), class: 'btn btn-secondary' %>
+      <br>
+      <p>
+      <%= f.submit 'Save', class: 'btn btn-primary btn-sm' %>
+      <%= link_to 'Cancel', talk_path(@talk), class: 'btn btn-secondary btn-sm' %>
+      </p>
     <% end %>
   </div>
 </div>

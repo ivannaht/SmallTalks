@@ -28,7 +28,7 @@
             <td><%= image_tag(talk.photo, size: '150') if talk.photo.present? %></td>
             <td><%= talk.theme if talk.theme.present? %></td>
             <td><%= talk.likes_number %></td>
-            <td><%= talk.comments_number %></td>
+            <td><%= talk.comments.count %></td>
             <td><%= talk.user.nickname %></td>
             <td><%= link_to 'View', talk, class:"btn btn-outline-primary" %></td>
             <td><%= link_to 'Edit', edit_talk_path(talk), class:"btn btn-outline-info" %></td>

@@ -1,11 +1,14 @@
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-1">
   </div>
   <div class="col-sm-6">
 <div>
   <div>
-    <%= reply.body %>
-  </div>
+  <%= image_tag(reply.user.photo, size: '30', :style => "border: 1px solid grey; margin:5px;") if reply.user.photo.present? %>
+    <strong><%= reply.user.nickname %></strong>
+    
+      <p><%= reply.body %></p>
+  </div>  
 </div>
 </div>
 </div>
