@@ -22,7 +22,7 @@
     </div>
   <div class="card-footer text-muted">
     likes: <%= @talk.likes_number %>
-    comments: <%= @talk.comments_number %>
+    comments: <%= @talk.comments.count %>
     <p>
     <%= link_to toggle_favorite_talk_path(@talk), remote: true, method: :post do %>
               <%= render 'talks/heart_button', talk: @talk %>
@@ -32,6 +32,25 @@
 </div>
 
 <br>
+<div class="card my-1">
+  <div class="card-body">
+<strong><p>Comments</p></strong>
+<%= render @talk.comments %>
+<br>    
+    <%= form_with(model: [@talk, @talk.comments.build]) do |f| %>
+      <div class="form-group">
+        <%= f.label 'New comment' %>
+        <%= f.text_area :body, class: 'form-control w-75' %>
+      </div>
+      <br>
+      <p>
+      <%= f.submit 'Save', class: 'btn btn-primary' %>
+      </p>
+    <% end %>    
+  </div>
+  </div>
+<br>
+
 
 
 

@@ -1,0 +1,16 @@
+<div class="card ml-5">
+  <div class="card-body">
+    <%= form_with(model: [@talk, @comment]) do |f| %>
+      <%= f.hidden_field :parent_id %>
+      <div class="form-group">
+        <%= f.label 'Reply' %>
+        <%= f.text_area :body, class: 'form-control w-75' %>
+      </div>
+      <br>
+      <p>
+      <%= f.submit 'Save', class: 'btn btn-primary btn-sm' %>
+      <%= link_to 'Cancel', talk_path(@talk), class: 'btn btn-secondary btn-sm' %>
+      </p>
+    <% end %>
+  </div>
+</div>

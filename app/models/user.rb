@@ -18,10 +18,11 @@ class User < ApplicationRecord
 
 
   #relationship       
-  has_many :talks
+  has_many :talks, dependent: :destroy
   has_one_attached :photo
   acts_as_favoritor
   has_one :feedback, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
 
   def calculate_age(dob)

@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<% unless comment.parent_id || !comment.persisted? %>
+  <div>
+    <div>
+    <%= image_tag(comment.user.photo, size: '30', :style => "border: 1px solid grey; margin:5px;") if comment.user.photo.present? %>
+    <strong><%= comment.user.nickname %></strong>
+      
+      <p><%= comment.body %></p>
+      <%= link_to  new_talk_comment_path(@talk, parent_id: comment.id), remote: true do %>
+  <i class="fa fa-reply" aria-hidden="true"></i> reply
+<% end %>
+      <% link_to "reply", new_talk_comment_path(@talk, parent_id: comment.id), remote: true, class: 'd-block' %>     
+      </div>
+  </div>
+  <% if comment.replies.any? %>
+    <% comment.replies.each do |reply| %> 
+      <%= render partial: 'comments/reply', locals: { reply: reply } %>
+    <% end %>
+  <% end %>
+  <div id="reply-form-<%= comment.id %>"></div>
+<% end %>
