@@ -23,7 +23,7 @@ class User < ApplicationRecord
   acts_as_favoritor
   has_one :feedback, dependent: :destroy
   has_many :comments, dependent: :destroy
-
+  acts_as_voter
 
   def calculate_age(dob)
     ((Time.zone.now - dob.to_time) / 1.year.seconds).floor
