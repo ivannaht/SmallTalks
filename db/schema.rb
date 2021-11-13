@@ -84,11 +84,7 @@ ActiveRecord::Schema.define(version: 2021_11_13_164505) do
   create_table "talks", force: :cascade do |t|
     t.string "title"
     t.text "text"
-    t.string "photo"
-    t.integer "likes_number"
-    t.integer "dislikes_number"
-    t.integer "comments_number"
-    t.integer "shares_number"
+    t.string "photo"   
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

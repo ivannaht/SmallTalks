@@ -44,8 +44,8 @@
         </div>    
         <div class="card-footer text-muted">
           <div>
-            likes: <%= talk.likes_number %>
-            comments: <%= talk.comments_number %>
+            score: <%= talk.cached_weighted_score %>
+            comments: <%= talk.comments.count %>
           </div>
           <div>
           <p>
