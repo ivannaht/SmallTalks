@@ -21,10 +21,12 @@
    <% end %>
     </div>
   <div class="card-footer text-muted">
-    <p>
-      score: <%= @talk.cached_weighted_score %>
-      comments: <%= @talk.comments.count %>
-    </p>
+     <table class="center"> 
+      <td style="padding:5px;" >score: </td>
+      <td><%= render "talks/votes_score", talk: @talk %></td>          
+      <td  style="padding:5px;">comments:</td>
+      <td><%= @talk.comments.count %></td>
+    </table>
     <table class="center" style="max-width: 15rem;">    
       <td><%= link_to toggle_favorite_talk_path(@talk), remote: true, method: :post do %>
       <%= render 'talks/heart_button', talk: @talk %><% end %></td>
