@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Comments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>List of Comments</h2>
+      <h4>for selected Talk</h4>
+    </div>
+    <div class="table-responsive-sm">
+      <table  class=" table table-hover align-middle" style='font-size:80%; text-align:center' >
+        <thead class="table-light">
+          <tr vertical-align: middle>
+      <th>Comments</th>
       <th>Talk</th>
       <th>User</th>
-      <th>Parent</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,16 +23,19 @@
       <tr>
         <td><%= comment.body %></td>
         <td><%= comment.talk_id %></td>
-        <td><%= comment.user_id %></td>
-        <td><%= comment.parent_id %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= comment.user.nickname %></td>
+        <td><% comment.parent_id %></td>
+        
+        <% if current_user.admin?%>
+        <td><%= link_to 'Edit', edit_comment_path(comment.talk_id) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+    <br><br>
+  </div>
+</section>
 
-<br>
-
-<%= link_to 'New Comment', new_comment_path %>
