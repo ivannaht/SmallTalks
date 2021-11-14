@@ -1,0 +1,13 @@
+<%= content_tag "div", id: "downvote-#{talk.id}" do %>
+  <%= link_to downvote_talk_path(talk), method: :patch, remote: true, data: { disable_with: "voting..." } do %>
+    <% if current_user.voted_down_on? talk %>
+      <button type="button" class="btn btn-secondary">
+      <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+      </button>
+    <% else %>
+       <button type="button" class="btn btn-outline-dark">     
+      <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+    </button>
+    <% end %>
+  <% end %>
+<% end %>

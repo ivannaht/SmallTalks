@@ -1,0 +1,3 @@
+document.getElementById("upvote-<%= @talk.id %>").innerHTML = "<%= j render "talks/upvote_link", talk: @talk %>";
+document.getElementById("downvote-<%= @talk.id %>").innerHTML = "<%= j render "talks/downvote_link", talk: @talk %>";
+document.getElementById("votes-score-<%= @talk.id %>").innerHTML = "<%= j render "talks/votes_score", talk: @talk %>";

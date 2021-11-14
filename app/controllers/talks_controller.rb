@@ -7,9 +7,29 @@ class TalksController < ApplicationController
 
   # GET /talks or /talks.json
   def index
-    @talks = Talk.all
+    @talks = Talk.all.order(cached_votes_score: :desc)
     @favorite_talks = current_user.favorited_by_type('Talk')
     
+  end
+
+  def upvote
+    @talk = Talk.find(params[:id])
+    if current_user.voted_up_on? @talk
+      @talk.unvote_by current_user
+    else
+      @talk.upvote_by current_user
+    end
+    render "vote.js.erb"
+  end
+
+  def downvote
+    @talk = Talk.find(params[:id])
+    if current_user.voted_down_on? @talk
+      @talk.unvote_by current_user
+    else
+      @talk.downvote_by current_user
+    end
+    render "vote.js.erb"
   end
 
   # GET /talks/1 or /talks/1.json

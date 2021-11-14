@@ -14,8 +14,13 @@ Rails.application.routes.draw do
   resources :talks, only: :index do
   member do
     post 'toggle_favorite', to: "talks#toggle_favorite"
-    
   end
+
+  member do
+    patch "upvote", to: "talks#upvote"
+    patch "downvote", to: "talks#downvote"
+  end
+
 end
   
 end

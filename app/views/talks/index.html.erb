@@ -35,16 +35,19 @@
       <h2>List of Talks</h2>
     </div>
     <div class="table-responsive-sm">
-      <table  class=" table table-hover align-middle" >
+      <table  class=" table table-hover align-middle" style='font-size:80%; text-align:center' >
         <thead class="table-light">
           <tr vertical-align: middle>
           <th>Title</th>
           <th>Text</th>
           <th>Photo</th>
-          <th>Theme</th>
-          <th>Likes</th>
-          <th>Comments</th>
+          <th>Theme</th>      
           <th>User</th>
+          <th>Comments</th>
+          <th>Add to Favorites</th>
+          <th>Like</th>
+          <th>Dislike</th>
+          <th>Score</th>
           <th colspan="4"></th>
         </tr>
         </thead>
@@ -55,18 +58,21 @@
           <td><%= truncate(talk.text, length: 190, omission: '...')%></td>
           <td><%= image_tag(talk.photo, size: '150') if talk.photo.present? %></td>
           <td><%= talk.theme if talk.theme.present? %></td>
-          <td><%= talk.likes_number %></td>
-          <td><%= talk.comments.count %></td>
-          <td><%= talk.user.nickname %></td>
+          <td><%= talk.user.nickname %></td> 
+          <td><%= talk.comments.count %></td>                   
           <td>  
           <%= link_to toggle_favorite_talk_path(talk), remote: true, method: :post do %>
           <%= render 'talks/heart_button', talk: talk %>
           <% end %>
           </td>
+          <td><%= render "talks/upvote_link", talk: talk %></td>
+          <td><%= render "talks/downvote_link", talk: talk %></td>
+          <td><%= render "talks/votes_score", talk: talk %></td>
           <td><%= link_to 'View', talk, class:"btn btn-outline-primary" %></td>        
           <% if current_user.admin?%>
           <td><%= link_to 'Edit', edit_talk_path(talk), class:"btn btn-outline-info" %></td>
           <td><%= link_to 'Delete', talk, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %></td>
+          
           <% end %>    
         </tr>
           <% end %>

@@ -12,5 +12,6 @@ class Talk < ApplicationRecord
   has_one_attached :photo
   acts_as_favoritable
   has_many :comments, dependent: :destroy
+  acts_as_votable
   
 end

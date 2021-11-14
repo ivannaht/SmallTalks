@@ -70,6 +70,7 @@ GEM
       zeitwerk (~> 2.3)
     acts_as_favoritor (5.0.3)
       activerecord (>= 5.0)
+    acts_as_votable (0.13.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     bcrypt (3.1.16)
@@ -258,6 +259,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_favoritor
+  acts_as_votable
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
