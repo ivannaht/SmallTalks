@@ -25,11 +25,19 @@
     score: <%= @talk.cached_weighted_score %>
     comments: <%= @talk.comments.count %>
     </p>
-    <p>
-    <%= link_to toggle_favorite_talk_path(@talk), remote: true, method: :post do %>
-              <%= render 'talks/heart_button', talk: @talk %>
-            <% end %>        
-    </p>
+  <table class="center" style="max-width: 15rem;">
+    
+    <td><%= link_to toggle_favorite_talk_path(@talk), remote: true, method: :post do %>
+    <%= render 'talks/heart_button', talk: @talk %><% end %></td>
+
+
+   <td><%= render "talks/upvote_link", talk: @talk %></td>
+    
+    
+    <td><%= render "talks/downvote_link", talk: @talk %></td>
+    
+    </table>
+
   </div>
 </div>
 
