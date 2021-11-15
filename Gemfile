@@ -33,6 +33,8 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'acts_as_favoritor'
 #
 gem 'acts_as_votable'
+#
+gem 'seed_dump', '~> 3.3', '>= 3.3.1'
 
 
 group :development, :test do

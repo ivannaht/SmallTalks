@@ -205,6 +205,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed_dump (3.3.1)
+      activerecord (>= 4)
+      activesupport (>= 4)
     selenium-webdriver (4.0.3)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -275,6 +278,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   rspec-rails (~> 5.0, >= 5.0.2)
   sass-rails (>= 6)
+  seed_dump (~> 3.3, >= 3.3.1)
   selenium-webdriver
   simplecov
   spring
